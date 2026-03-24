@@ -9,7 +9,8 @@
 - 解压压缩包
 - 浏览器中打开开发者模式，加载已解压的压缩包
   
-  ![demo](docs/image.png)  
+<img width="1359" height="758" alt="image" src="https://github.com/user-attachments/assets/6d8e1715-d728-460f-976e-e92b123b61c6" />
+
 
 ## 技术栈
 
