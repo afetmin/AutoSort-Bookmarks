@@ -61,7 +61,6 @@ export async function captureBookmarkContent(
     };
 
     const response = (await browser.tabs.sendMessage(matchingTab.id, message)) as PageCapture | undefined;
-
     if (!response) {
       return fallbackCapture(title, url);
     }

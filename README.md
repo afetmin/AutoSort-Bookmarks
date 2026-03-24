@@ -1,14 +1,21 @@
 # AutoSort Bookmarks
-一个基于 AI 的浏览器书签自动分类扩展。不要再纠结收藏到哪个文件夹了，先收藏再说。后续整理有很多好的开源插件
+一个基于 AI 的浏览器书签自动分类扩展。不要再纠结收藏到哪个文件夹了，先收藏再说。
 
 ## 痛点
  - 分类太多，有时候一个书签属于多个分类，不知道选什么，不想纠结，只想先收藏。
+
+## 如何使用
+- 下载 [Chrome 扩展](https://github.com/afetmin/AutoSort-Bookmarks/releases/download/v0.1.2/autosort-bookmarks-0.1.2-chrome.zip) 或者 [Firefox 扩展](https://github.com/afetmin/AutoSort-Bookmarks/releases/download/v0.1.2/autosort-bookmarks-0.1.2-firefox.zip)
+- 解压压缩包
+- 浏览器中打开开发者模式，加载已解压的压缩包
+  
+  ![demo](docs/image.png)  
 
 ## 技术栈
 
 - `WXT`（浏览器扩展开发框架）
 - `Svelte 5` 较小的运行时体积
-- `TypeScript`
+- `readability` 用于提取网页内容
 - `@wxt-dev/browser`（跨浏览器 API 适配）
 
 ## 环境要求

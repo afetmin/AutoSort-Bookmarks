@@ -107,10 +107,11 @@ function renderToast(request: ShowToastRequest): void {
 export default defineContentScript({
   matches: ['http://*/*', 'https://*/*'],
   main() {
-    browser.runtime.onMessage.addListener((message: RuntimeRequest) => {
+    browser.runtime.onMessage.addListener((message: RuntimeRequest, _sender, sendResponse) => {
       if (message?.type === MESSAGE_TYPES.capturePage) {
         const request = message as CapturePageRequest;
-        return Promise.resolve(extractPageContent(request.maxChars));
+        sendResponse(extractPageContent(request.maxChars));
+        return true;
       }
 
       if (message?.type === MESSAGE_TYPES.showToast) {
