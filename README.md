@@ -1,17 +1,19 @@
 # AutoSort Bookmarks
+一个基于 AI 的浏览器书签自动分类扩展。不要再纠结收藏到哪个文件夹了，先收藏再说。后续整理有很多好的开源插件
 
-一个基于 AI 的浏览器书签自动分类扩展。不要再纠结收藏到哪个文件夹了，先收藏再说。
+## 痛点
+ - 分类太多，有时候一个书签属于多个分类，不知道选什么，不想纠结，只想先收藏。
 
 ## 技术栈
 
 - `WXT`（浏览器扩展开发框架）
-- `Svelte 5`
+- `Svelte 5` 较小的运行时体积
 - `TypeScript`
 - `@wxt-dev/browser`（跨浏览器 API 适配）
 
 ## 环境要求
 
-- `Node.js 20+`
+- `Node.js 22+`
 
 ## 快速开始
 
@@ -20,7 +22,8 @@ npm install
 npm run dev
 ```
 
-默认启动 Chrome 开发模式；Firefox 开发模式：
+默认启动 Chrome 开发模式；
+Firefox 开发模式：
 
 ```bash
 npm run dev:firefox
@@ -44,3 +47,16 @@ npm run zip:firefox
 ## 扩展加载方式
 
 1. 本地开发：执行 `npm run dev` 后 WXT 会自动打开浏览器
+
+## 后续计划
+
+- [ ] 自定义书签文件夹层级
+- [ ] 整理现有书签
+
+## 欢迎贡献
+
+欢迎贡献代码，提 issue，提需求，提建议。
+
+## 许可证
+
+MIT
