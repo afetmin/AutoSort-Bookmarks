@@ -4,11 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-  workflow_run:
-    workflows:
-      - Version bump
-    types:
-      - completed
 
 permissions:
   contents: write
@@ -19,37 +14,17 @@ concurrency:
 
 jobs:
   build:
-    if: >-
-      github.event_name == 'push' ||
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        if: github.event_name == 'push'
         with:
-          fetch-depth: 0
-
-      - uses: actions/checkout@v4
-        if: github.event_name == 'workflow_run'
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.ref }}
           fetch-depth: 0
 
       - name: Resolve tag from push event
-        if: github.event_name == 'push'
         id: resolve_tag_push
         run: echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
-
-      - name: Resolve tag from workflow_run commit
-        if: github.event_name == 'workflow_run'
-        id: resolve_tag_run
-        run: |
-          TAG="$(git tag --points-at HEAD | grep '^v' | head -n1 || true)"
-          if [ -z "$TAG" ]; then
-            echo "No v* tag found on commit ${GITHUB_SHA}"
-            exit 1
-          fi
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
         with:
@@ -63,7 +38,7 @@ jobs:
 
       - uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.resolve_tag_push.outputs.tag || steps.resolve_tag_run.outputs.tag }}
+          tag_name: ${{ steps.resolve_tag_push.outputs.tag }}
           files: |
             .output/autosort-bookmarks-*-chrome.zip
             .output/autosort-bookmarks-*-firefox.zip
