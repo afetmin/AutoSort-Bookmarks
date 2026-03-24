@@ -248,14 +248,11 @@ export async function handleActionClick(tab: { id?: number; title?: string; url?
   const existingBookmarks = await findBookmarksByUrl(url);
 
   if (existingBookmarks.length) {
-    const job = await enqueueBookmark(existingBookmarks[0].id, {
-      triggerSource: 'action',
-      triggerTabId: tab.id,
+    await setActionState('success', {
+      tabId: tab.id,
+      title: 'AutoSort Bookmarks: Already saved',
     });
-
-    if (!job) {
-      await flashActionError(tab.id, 'Could not enqueue bookmark');
-    }
+    await showToast(tab.id, 'info', '已收藏', '这个链接已经在书签里了');
 
     return;
   }

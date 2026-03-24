@@ -92,8 +92,9 @@ export async function getPreferredCreationRootId(): Promise<string> {
   }
 
   const preferred =
+    roots.find((root) => /bookmark(?:s)? bar|toolbar|书签栏|收藏夹栏/i.test(root.title)) ??
+    roots.find((root) => !/mobile|移动/i.test(root.title) && !/other|unsorted|others|其他/i.test(root.title)) ??
     roots.find((root) => /other|unsorted|others|其他/i.test(root.title)) ??
-    roots.find((root) => !/bar|toolbar|mobile|移动/i.test(root.title)) ??
     roots.find((root) => !/mobile|移动/i.test(root.title)) ??
     roots[0];
 
