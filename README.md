@@ -4,12 +4,21 @@
 ## 痛点
  - 分类太多，有时候一个书签属于多个分类，不知道选什么，不想纠结，只想先收藏。
 
+## Demo
+
+[](https://github.com/user-attachments/assets/d08ea99f-ab36-4b70-8d29-1b2f318fad29)
+
+
+
 ## 如何使用
 - 下载 [Chrome 扩展](https://github.com/afetmin/AutoSort-Bookmarks/releases/download/v0.1.2/autosort-bookmarks-0.1.2-chrome.zip) 或者 [Firefox 扩展](https://github.com/afetmin/AutoSort-Bookmarks/releases/download/v0.1.2/autosort-bookmarks-0.1.2-firefox.zip)
 - 解压压缩包
 - 浏览器中打开开发者模式，加载已解压的压缩包
+- 配置好 API （存在本地）
+- enjoy！
   
 <img width="1359" height="758" alt="image" src="https://github.com/user-attachments/assets/6d8e1715-d728-460f-976e-e92b123b61c6" />
+
 
 
 ## 技术栈
